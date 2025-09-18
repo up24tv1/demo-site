@@ -1,0 +1,61 @@
+/* Brand palette via CSS variables; adjust for each client/niche */
+:root {
+  --primary-color: #227AFF;
+  --secondary-color: #3F51B5;
+  --accent-color: #FFC107;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+header.hero {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+    url("https://picsum.photos/seed/hero/1200/600");
+  background-size: cover;
+  background-position: center;
+  padding: 6rem 0;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.hero p {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+}
+
+.caption {
+  font-size: 0.8rem;
+  color: #CCCCCC;
+}
