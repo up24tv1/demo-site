@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Webpage – Demo</title>
+    <!-- Pico.css light theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.9/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- JSON‑LD schema for a Person / LocalBusiness. Replace values as appropriate -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "John Doe",
+        "description": "Handyman & renovation expert in Austin, TX",
+        "url": "https://example.github.io/johndoe",
+        "sameAs": [
+          "https://twitter.com/johndoe",
+          "https://instagram.com/johndoe"
+        ],
+        "jobTitle": "General Contractor",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Doe Constructions"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Main Street",
+          "addressLocality": "Austin",
+          "addressRegion": "TX",
+          "postalCode": "78701",
+          "addressCountry": "US"
+        },
+        "telephone": "+1-512-555-1234"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <h1>Welcome to John’s Handyman Services</h1>
+        <p>Professional renovations and repairs. Serving Austin & surrounding areas.</p>
+        <a href="#contact" role="button" class="secondary">Get in Touch</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Hi! I’m John, a licensed general contractor with over 15 years of
+          experience in home renovations and repairs. I pride myself on quality
+          workmanship and customer satisfaction.
+        </p>
+      </section>
+
+      <section id="services">
+        <h2>Services</h2>
+        <div class="grid">
+          <article>
+            <h3>Renovations</h3>
+            <p>
+              Kitchen and bathroom remodels, home extensions and more. I work
+              closely with you to design and build spaces that suit your style
+              and budget.
+            </p>
+          </article>
+          <article>
+            <h3>Repairs</h3>
+            <p>
+              From leaky faucets to drywall repairs, no job is too small. I
+              provide reliable and cost‑effective maintenance services.
+            </p>
+          </article>
+          <article>
+            <h3>Consultations</h3>
+            <p>
+              Unsure where to start? Book a consultation and I’ll help you plan
+              your project, estimate costs and select materials.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery">
+        <h2>Recent Projects</h2>
+        <div class="grid">
+          <img
+            src="https://picsum.photos/seed/kitchen/800/500"
+            alt="Example kitchen renovation"
+            class="project"
+          />
+          <img
+            src="https://picsum.photos/seed/bathroom/800/500"
+            alt="Example bathroom remodel"
+            class="project"
+          />
+          <img
+            src="https://picsum.photos/seed/extension/800/500"
+            alt="Example home extension"
+            class="project"
+          />
+        </div>
+        <p class="caption">
+          Images courtesy of Picsum Photos for demo purposes. Replace them with
+          your own project photos.
+        </p>
+      </section>
+
+      <section id="location">
+        <h2>Service Area</h2>
+        <p>Based in Austin, serving customers within a 25-mile radius.</p>
+        <div id="map" style="height: 400px;"></div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <form
+          action="https://formsubmit.co/youremail@example.com"
+          method="POST"
+          class="contact-form"
+        >
+          <!-- FormSubmit requires a hidden input to disable captcha -->
+          <input type="hidden" name="_captcha" value="false" />
+          <label>
+            Your Name:
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email Address:
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Message:
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="contrast">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="container">
+      <small>
+        © 2025 John Doe. This site was generated automatically by our SaaS
+        demo template. Built with Pico.css and Leaflet. Images from
+        Picsum Photos.
+      </small>
+    </footer>
+
+    <!-- Leaflet JS and CSS (free, open-source maps) -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha384-EprmVqujHzrrCfvS9PXZpD/XIodIVVAhpgXpAv91RIs5MMFG/HsgyZByuJGO08zP"
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha384-gZ66KxBj5IG5Vx0yCYuJZXYU0kWpAUERXxS4dPyp4CkEKI1hsQFNBymmJj+nqhkB"
+      crossorigin=""
+    ></script>
+    <script>
+      // Initialize the map centered on Austin, TX
+      const map = L.map("map").setView([30.2672, -97.7431], 11);
+      // Use OpenStreetMap tiles for demo. In production, use a service with generous terms.
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+      // Draw a circle to show service radius
+      L.circle([30.2672, -97.7431], {
+        color: "#227AFF",
+        fillColor: "#227AFF",
+        fillOpacity: 0.2,
+        radius: 40000 // about 25 miles in meters
+      }).addTo(map);
+    </script>
+  </body>
+</html>
