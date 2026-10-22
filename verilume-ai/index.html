@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verilume: AI copilot for RTL & verification (concept demo)</title>
+<meta name="description" content="Concept landing page demo: an AI copilot that drafts RTL and keeps verification in the loop.">
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#07090f;--card:#0f1420;--line:#1d2536;--tx:#e8ecf4;--mut:#93a0b8;--a:#7c5cff;--b:#22d3ee}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--tx);line-height:1.55}
+a{color:inherit}.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bar{position:sticky;top:0;z-index:50;background:#fbbf24;color:#111;text-align:center;font:600 13px/1.3 system-ui;padding:7px 10px}
+.wm{position:fixed;right:12px;bottom:12px;z-index:60;background:rgba(0,0,0,.72);border:1px solid #333;color:#fff;font:600 12px system-ui;padding:6px 10px;border-radius:8px;pointer-events:none}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.3px}.logo span{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;color:transparent}
+.links a{color:var(--mut);text-decoration:none;margin-left:22px;font-size:14px}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;font-size:15px}
+.p{background:linear-gradient(90deg,var(--a),var(--b));color:#fff}.g{border:1px solid var(--line);color:var(--tx)}
+.hero{padding:70px 0 50px;display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center}
+.pill{display:inline-block;border:1px solid var(--line);color:var(--b);padding:5px 12px;border-radius:99px;font-size:12px;margin-bottom:18px}
+h1{font-size:52px;line-height:1.05;letter-spacing:-1.5px;margin:0 0 18px}h1 em{font-style:normal;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;color:transparent}
+.lead{color:var(--mut);font-size:18px;margin:0 0 26px}.cta{display:flex;gap:12px;flex-wrap:wrap}
+.code{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(124,92,255,.45)}
+.code .t{display:flex;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line);font-size:12px;color:var(--mut);align-items:center}
+.d{width:10px;height:10px;border-radius:50%;background:#2a3346}
+pre{margin:0;padding:18px;font:13px/1.6 ui-monospace,Menlo,monospace;color:#cbd5e1;white-space:pre-wrap}
+.k{color:#c4b5fd}.c{color:#64748b}.ok{color:#4ade80}.w{color:#fbbf24}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:10px 0 70px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}.stat b{font-size:32px;display:block}.stat span{color:var(--mut);font-size:14px}
+.ph{font-size:11px;color:#fbbf24;font-weight:600}
+h2{font-size:34px;letter-spacing:-.8px;margin:0 0 10px}.sub{color:var(--mut);margin:0 0 30px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:80px}
+.f{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}.f h3{margin:10px 0 6px;font-size:18px}.f p{margin:0;color:var(--mut);font-size:15px}
+.ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(124,92,255,.15);font-size:18px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:80px;counter-reset:s}
+.st{border-top:2px solid var(--a);padding-top:14px}.st:before{counter-increment:s;content:"0" counter(s);color:var(--b);font:600 13px ui-monospace,monospace}.st h4{margin:6px 0 4px}.st p{margin:0;color:var(--mut);font-size:14px}
+.final{text-align:center;background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(34,211,238,.12));border:1px solid var(--line);border-radius:20px;padding:56px 22px;margin-bottom:60px}
+form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}input{background:#0b0f18;border:1px solid var(--line);color:var(--tx);padding:12px 14px;border-radius:10px;min-width:260px;font-size:15px}
+footer{border-top:1px solid var(--line);padding:26px 0 70px;color:var(--mut);font-size:13px}footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:40px}h1{font-size:38px}.grid,.stats{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.links{display:none}}
+</style></head><body>
+<div class="bar">Concept demo, not the live site · product name, copy and figures are placeholders</div>
+<div class="wm">Austin AI Marketing Co. — sample</div>
+<div class="wrap">
+<nav><div class="logo">veri<span>lume</span></div><div class="links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#waitlist">Early access</a></div><a class="btn g" href="#waitlist">Join waitlist</a></nav>
+<section class="hero"><div><div class="pill">AI copilot for chip design · private beta</div>
+<h1>Write RTL with AI.<br><em>Keep verification in the loop.</em></h1>
+<p class="lead">Verilume drafts Verilog/SystemVerilog from your spec, then generates assertions and testbenches and runs lint and sim before you ever see a diff. LLM speed, engineer-grade checks.</p>
+<div class="cta"><a class="btn p" href="#waitlist">Request early access</a><a class="btn g" href="#how">See how it works</a></div></div>
+<div class="code"><div class="t"><i class="d"></i><i class="d"></i><i class="d"></i>&nbsp; fifo_ctrl.sv · verilume</div>
+<pre><span class="c">// prompt: 16-deep sync FIFO, full/empty flags</span>
+<span class="k">module</span> fifo_ctrl #(<span class="k">parameter</span> D=16)(
+  <span class="k">input  logic</span> clk, rst_n, wr_en, rd_en,
+  <span class="k">output logic</span> full, empty);
+  ...
+<span class="k">endmodule</span>
+
+<span class="c">// auto-generated checks</span>
+<span class="ok">✓</span> lint        0 errors
+<span class="ok">✓</span> SVA         12/12 assertions hold
+<span class="ok">✓</span> sim         2,048 random vectors
+<span class="w">!</span> coverage    94% · 2 bins suggested</pre></div></section>
+<div class="stats"><div class="stat"><b>3×</b><span>faster first-pass RTL</span><div class="ph">PLACEHOLDER STAT</div></div><div class="stat"><b>100%</b><span>of AI diffs gated by lint + sim</span><div class="ph">PLACEHOLDER STAT</div></div><div class="stat"><b>40+</b><span>design teams on the waitlist</span><div class="ph">PLACEHOLDER STAT</div></div></div>
+<section id="features"><h2>Built for engineers who verify everything</h2><p class="sub">AI that respects the sign-off flow instead of skipping it.</p>
+<div class="grid">
+<div class="f"><div class="ic">⚡</div><h3>Spec → RTL</h3><p>Turn a plain-English or markdown spec into synthesizable SystemVerilog with clean, parameterized modules.</p></div>
+<div class="f"><div class="ic">🛡️</div><h3>Assertions on autopilot</h3><p>Every generated block ships with SVA properties and a UVM-lite testbench you can actually read.</p></div>
+<div class="f"><div class="ic">🔁</div><h3>Verify-then-show</h3><p>Lint, simulation and coverage run first. You only review diffs that pass, with a clear report.</p></div>
+<div class="f"><div class="ic">🧠</div><h3>Agentic debug</h3><p>Paste a failing waveform or log; the agent traces the root cause and proposes a minimal fix.</p></div>
+<div class="f"><div class="ic">🔌</div><h3>Fits your toolchain</h3><p>Works with Verilator, Icarus and your existing Git flow. CLI, VS Code and CI hooks.</p></div>
+<div class="f"><div class="ic">🔒</div><h3>Private by default</h3><p>Your IP stays yours: self-hosted models option, no training on customer code.</p></div>
+</div></section>
+<section id="how"><h2>How it works</h2><p class="sub">From spec to verified block in four steps.</p>
+<div class="steps"><div class="st"><h4>Describe</h4><p>Write the spec or point at an existing module.</p></div><div class="st"><h4>Generate</h4><p>Verilume drafts RTL plus assertions.</p></div><div class="st"><h4>Verify</h4><p>Lint, sim and coverage run automatically.</p></div><div class="st"><h4>Merge</h4><p>Review a passing diff and open a PR.</p></div></div></section>
+<section class="final" id="waitlist"><h2>Ship silicon faster, without the risk</h2><p class="sub" style="margin:0">Join the private beta. We're onboarding a small group of design teams.</p>
+<form onsubmit="event.preventDefault();this.innerHTML='<p>Thanks! (demo form, nothing was sent)</p>'"><input type="email" placeholder="you@company.com" required><button class="btn p" style="border:0;cursor:pointer">Request access</button></form></section>
+</div>
+<footer><div class="wrap"><span>© Verilume (placeholder name) · AI copilot for RTL & verification</span><span>Concept demo by Austin AI Marketing Co. Stats marked PLACEHOLDER are illustrative.</span></div></footer>
+</body></html>
