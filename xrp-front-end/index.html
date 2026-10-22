@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XRP Front End: self-custody tools for the XRP Ledger (concept demo)</title>
+<meta name="description" content="Concept landing page demo for XRP Front End. Self-custody tools for the XRP Ledger: Batch payments, Workspaces and XRP invoices.">
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#07090d;--panel:#0e131b;--line:#1c2532;--ink:#e9eef5;--mut:#8b98ab;--acc:#23d3ff;--acc2:#7c5cff}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bar{background:linear-gradient(90deg,var(--acc2),var(--acc));color:#05070a;text-align:center;font-size:13px;font-weight:600;padding:7px 12px}
+nav{position:sticky;top:0;z-index:5;background:rgba(7,9,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.2px;text-decoration:none}
+.mark{width:30px;height:30px;border-radius:9px;background:conic-gradient(from 210deg,var(--acc),var(--acc2),var(--acc));display:grid;place-items:center;color:#05070a;font-size:15px;font-weight:900}
+.links{display:flex;gap:26px;font-size:14px;color:var(--mut)}.links a{text-decoration:none}.links a:hover{color:var(--ink)}
+.btn{display:inline-block;padding:12px 20px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;border:1px solid transparent;cursor:pointer}
+.btn.p{background:var(--acc);color:#04121a}.btn.p:hover{filter:brightness(1.1)}.btn.g{border-color:var(--line);background:var(--panel)}
+.hero{padding:88px 0 64px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-30% -10% auto auto;width:720px;height:720px;background:radial-gradient(closest-side,rgba(35,211,255,.18),transparent);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.pill{display:inline-block;font-size:12.5px;color:var(--acc);border:1px solid rgba(35,211,255,.35);border-radius:99px;padding:5px 12px;margin-bottom:18px}
+h1{font-size:clamp(36px,5.4vw,60px);line-height:1.05;letter-spacing:-1.5px}
+h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mut);font-size:18px;margin:20px 0 28px;max-width:540px}.cta{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;font-size:13.5px;color:var(--mut)}.trust b{color:var(--ink)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.app .row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.app .row:last-child{border:0}.tag{font-size:11.5px;padding:3px 9px;border-radius:99px;background:rgba(124,92,255,.15);color:#b7a6ff}
+.addr{font-family:ui-monospace,Menlo,monospace;color:var(--mut);font-size:12.5px}.amt{font-weight:700}
+section{padding:72px 0}h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.8px;line-height:1.15}.sub{color:var(--mut);margin-top:10px;max-width:620px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.f h3{font-size:19px;margin:14px 0 8px}.f p{color:var(--mut);font-size:15px}.ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(35,211,255,.1);color:var(--acc);font-size:20px}
+.new{font-size:11px;font-weight:700;color:#04121a;background:var(--acc);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:middle}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;counter-reset:s}
+.steps .card:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1px solid var(--acc);color:var(--acc);font-weight:800;margin-bottom:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px}.stat b{display:block;font-size:30px}.stat span{color:var(--mut);font-size:14px}
+.note{font-size:12.5px;color:var(--mut);margin-top:14px}
+.sec{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.list{list-style:none;padding:0}.list li{padding:10px 0 10px 30px;position:relative;color:var(--mut)}
+.list li:before{content:"✓";position:absolute;left:0;color:var(--acc);font-weight:800}.list b{color:var(--ink)}
+details{border-bottom:1px solid var(--line);padding:16px 0}summary{cursor:pointer;font-weight:700}details p{color:var(--mut);margin-top:8px}
+.final{text-align:center;background:linear-gradient(160deg,rgba(124,92,255,.16),rgba(35,211,255,.08));border:1px solid var(--line);border-radius:24px;padding:56px 22px}
+footer{border-top:1px solid var(--line);padding:30px 0 90px;color:var(--mut);font-size:13px}footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.wm{position:fixed;right:14px;bottom:14px;z-index:9;background:rgba(0,0,0,.72);border:1px solid var(--line);color:#fff;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:99px}
+@media(max-width:860px){.hero .wrap,.sec{grid-template-columns:1fr}.grid,.steps{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.links{display:none}.hero{padding:56px 0 40px}section{padding:52px 0}}
+</style></head><body>
+<div class="bar">Concept demo built for XRP Front End · not the live site</div>
+<nav><div class="wrap"><a class="logo" href="#"><span class="mark">✕</span>XRP Front End</a>
+<div class="links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#security">Security</a><a href="#faq">FAQ</a></div>
+<a class="btn p" href="#start">Launch app</a></div></nav>
+<header class="hero"><div class="wrap"><div>
+<span class="pill">Self-custody tools for the XRP Ledger</span>
+<h1>Run your XRPL wallets <span>like a pro.</span> Keep your keys.</h1>
+<p class="lead">Batch up to 8 payments in one transaction, organize wallets into Workspaces, and send invoices that get paid in XRP. All from one clean interface, and your keys never leave your hands.</p>
+<div class="cta"><a class="btn p" href="#start">Launch app</a><a class="btn g" href="#features">See features</a></div>
+<div class="trust"><span><b>Non-custodial</b> by design</span><span><b>BatchV1_1</b> ready</span><span><b>No sign-up</b> required</span></div>
+</div>
+<div class="card app" aria-label="Sample batch payment preview">
+<div class="row"><b>Batch payment</b><span class="tag">BatchV1_1</span></div>
+<div class="row"><span class="addr">rPEPP…k3Vq · Payroll</span><span class="amt">250 XRP</span></div>
+<div class="row"><span class="addr">rHb9C…JRtu · Design</span><span class="amt">120 XRP</span></div>
+<div class="row"><span class="addr">rLNaP…f5Lz · Hosting</span><span class="amt">45 XRP</span></div>
+<div class="row"><span class="addr">+ 5 more recipients</span><span class="amt">8 / 8</span></div>
+<div class="row"><span>One signature · one fee</span><a class="btn p" style="padding:8px 14px;font-size:13px" href="#start">Review &amp; sign</a></div>
+<p class="note">Illustrative preview. Addresses and amounts are placeholders.</p>
+</div></div></header>
+<section id="features"><div class="wrap"><h2>Everything the XRPL can do, without the friction</h2>
+<p class="sub">Built for holders, builders and businesses who want the power of the ledger and none of the custody risk.</p>
+<div class="grid">
+<div class="card f"><div class="ic">⇶</div><h3>Batch payments <span class="new">NEW</span></h3><p>Send up to 8 payments in a single transaction with the XRPL BatchV1_1 amendment. One signature, one review, done.</p></div>
+<div class="card f"><div class="ic">▦</div><h3>Workspaces</h3><p>One XRPL account isn't always enough. Group wallets into separate environments for personal, business or project funds.</p></div>
+<div class="card f"><div class="ic">⎘</div><h3>XRP invoices</h3><p>Create an invoice, share a link, get paid in XRP. Clients pay straight to your wallet. No middleman holds the funds.</p></div>
+</div></div></section>
+<section id="how" style="background:#0a0e14"><div class="wrap"><h2>Up and running in a minute</h2>
+<div class="steps">
+<div class="card"><h3>Connect your wallet</h3><p class="sub">Use the wallet you already trust. We never see or store your keys.</p></div>
+<div class="card"><h3>Pick a tool</h3><p class="sub">Batch a payout, set up a Workspace or draft an invoice.</p></div>
+<div class="card"><h3>Review and sign</h3><p class="sub">Every transaction is shown in plain English before you sign it.</p></div>
+</div>
+<div class="stats">
+<div class="stat"><b>8</b><span>payments per batch</span></div>
+<div class="stat"><b>0</b><span>keys stored by us</span></div>
+<div class="stat"><b>[#]</b><span>wallets connected (placeholder)</span></div>
+<div class="stat"><b>[#]</b><span>XRP invoiced (placeholder)</span></div>
+</div><p class="note">Figures in [brackets] are placeholders until real numbers are dropped in.</p></div></section>
+<section id="security"><div class="wrap sec"><div><h2>Self-custody, start to finish</h2><p class="sub">Your wallet signs. The ledger settles. We just make it easier to use.</p></div>
+<ul class="list"><li><b>Non-custodial.</b> Funds go wallet to wallet on the XRP Ledger.</li><li><b>Clear signing.</b> Every field is readable before you approve.</li><li><b>Open ledger.</b> Every transaction can be verified on-chain.</li><li><b>Independent.</b> Not affiliated with Ripple Labs.</li></ul></div></section>
+<section id="faq"><div class="wrap" style="max-width:800px"><h2>FAQ</h2>
+<details><summary>Do you ever hold my XRP?</summary><p>No. XRP Front End is a self-custody interface. Transactions are signed by your wallet and settle directly on the XRP Ledger.</p></details>
+<details><summary>What is a Batch payment?</summary><p>The XRPL BatchV1_1 amendment lets one transaction carry up to 8 payments, which makes payroll, payouts and splits much faster.</p></details>
+<details><summary>Can I keep business and personal wallets apart?</summary><p>Yes. Workspaces let you organize multiple XRPL wallets into separate environments in one interface.</p></details>
+<details><summary>Is this affiliated with Ripple?</summary><p>No. XRP Front End is independent and not affiliated with Ripple Labs.</p></details>
+</div></section>
+<section id="start"><div class="wrap"><div class="final"><h2>Take control of your XRPL wallets</h2><p class="sub" style="margin:12px auto 26px">Batch, organize and invoice. Your keys stay yours.</p><a class="btn p" href="#start">Launch app</a></div></div></section>
+<footer><div class="wrap"><span>© XRP Front End · Self-custody tools for the XRP Ledger · Not affiliated with Ripple Labs.</span><span>Concept demo by Austin AI Marketing Co. Placeholder figures are marked [#].</span></div></footer>
+<div class="wm">Austin AI Marketing Co. — sample</div>
+</body></html>
